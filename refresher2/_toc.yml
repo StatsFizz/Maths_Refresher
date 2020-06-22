@@ -4,8 +4,10 @@ sections:
 - file: mr1_functions
 - file: mr2_calculus
 - file: mr3_matrices
-- file: mr_reading
+- file: pr_5
 - header: Test yourself
 - file: Quiz1
 - file: Quiz2
 - file: Solutions
+- header: Further reading
+- file: mr_reading
