@@ -1,17 +1,21 @@
 # Book settings
 
-title: Maths Refresher MSc HDS
-book
-author: MSc HDS LSHTM 2020
-logo: jpg
+title: Maths Refresher
+
+author: MSc Health Data Science, LSHTM
+logo: logo.jpg
+
 
 latex:
   
 latex_documents:
     
-target name: book.tex
+targetname: book.tex
+
 # Information about where the book exists on the web
 repository:
-  url                       : https://github.com/yourusername/yourbookrepo  # Online location of your book
-  book_path                 : path/to/book  # Optional path to your book, relative to the repository root
-  branch                    : master  # Which branch of the repository should be used when creating links (optional
+  url                       : https://github.com/StatsFizz/Maths_Refresher
+  branch                    : master  # Which branch of the repository should be used when creating links (optional)
+# Configure your Binder links, such as the URL of the BinderHub.
+launch_buttons:
+  binderhub_url             : https://mybinder.org
