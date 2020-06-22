@@ -1,0 +1,11 @@
+file: content
+sections:
+- header: Brief notes
+- file: mr1_functions
+- file: mr2_calculus
+- file: mr3_matrices
+- file: mr_reading
+- header: Test yourself
+- file: Quiz1
+- file: Quiz2
+- file: Solutions
