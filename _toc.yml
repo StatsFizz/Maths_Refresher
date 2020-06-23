@@ -1,6 +1,6 @@
-file: content
-file: acknowledgements
+file: intro
 sections:
+- file: acknowledgements
 - header: Brief notes
 - file: mr1_functions
 - file: mr2_calculus
