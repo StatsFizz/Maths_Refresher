@@ -5,7 +5,8 @@ sections:
 - file: mr1_functions
 - file: mr2_calculus
 - file: mr3_matrices
-- file: pr_5
+- file: pr1_probability
+- file: pr5_distributions
 - header: Test yourself
 - file: Quiz1
 - file: Quiz2
