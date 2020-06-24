@@ -1,4 +1,4 @@
-# Functions and calculus 
+# Functions, exponential and logarithm rules
 
 ## Exponential rules
 

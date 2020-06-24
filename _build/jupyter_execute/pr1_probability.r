@@ -1,4 +1,4 @@
-# Probability - an introduction
+# Probability, definitions and axioms
 
 ## Defining probability
 We all have some intuitive idea about what we mean by the word 'probability'. 
@@ -35,17 +35,33 @@ Probability is crucial to medical statistics. For example:
     - We estimate that this new drug decreases 10-year mortality by 5\%. Can we provide a range of values which captures the uncertainty around this estimate?
 
 
-## Useful definitions
+## Defining events
 
 An **experiment** is a process that produces one outcome from some set of alternatives.
 
-The **sample space** is the set of points representing all the possible outcomes of an experiment.
+The **sample space** is the set of points representing all the possible outcomes of an experiment. The sample space is often denoted by $\Omega$.
 
 Suppose the experiment involved selecting an individual at random from the above population and denoting their smoking and asthma status. If we let $A$ denote having asthma and $S$ being a smoker, we can write the sample space as $\{AS,A\bar{S},\bar{A}S,\bar{A}\bar{S}\}$, where $\bar{A}$ denotes not having asthma.
 
 An **event** is a subset of the sample space, e.g. the event that a randomly selected individual is a smoker is $\{AS,\bar{A}S\}$.
 
+### Example
 
+One experiment might be as follows:
+- Randomly select an individual from a population.
+- Record asthma and smoking status ($A$ or $\overline{A}$ and $S$ or $\overline{S}$).
+
+The sample space contains four elements:
+
+$$
+\Omega = \{AS, A\overline{S}, \overline{A}S, \overline{A}\overline{S} \}
+$$
+
+One event of interest would be the event that the selected individual is a smoker: 
+
+$$
+\{AS,  \overline{A}S \}
+$$
 
 ## Venn diagrams and set notation
 
@@ -58,16 +74,24 @@ The **intersection** of two events $X$ and $Y$, denoted $X \cap Y$, is the event
 
 The **complement** of an event $X$, denoted $\bar{X}$, is the event that $X$ does not occur. The complement of $X$ is also sometimes denoted $X'$.
 
-[Add venn diagrams]
+```{figure} Images/venn.png
+---
+height: 400px
+name: venn
+---
+Venn diagrams
+```
 
 
 ## Axioms of probability
 
+We write $P(A)$ to denote the probability of event $A$ occurring.
+
 The probabilities of events must follow the **axioms** of probability theory:
 
-- $0 \leq P(A) \leq 1$ for every event $A$.
-- $P(\Omega)=1$ where $\Omega$ is the total sample space.
-- For disjoint (mutually exclusive) events $A_{1},..,A_{n}$:
+1. $0 \leq P(A) \leq 1$ for every event $A$.
+2. $P(\Omega)=1$ where $\Omega$ is the total sample space.
+3. For disjoint (mutually exclusive) events $A_{1},..,A_{n}$:
 
 $$
 P(A_{1} \cup A_{2} \cup \ldots \cup A_{n}) = P(A_{1}) + P(A_{2}) + \ldots + P(A_{n}).
@@ -95,3 +119,101 @@ P(A_{1} \cup A_{2}) = P(A_{1}) + P(A_{2}) - P(A_{1} \cap A_{2})
 $$
 
 Proof is left as an exercise.
+
+## Conditional probability
+
+Suppose that we know that an individual is a smoker. Given that event, what is the probability that the individual suffers from asthma? This is known as a **conditional probability**.
+
+We can write this as $P(A|S)$. This is called the conditional probability of $A$ given $S$, i.e. the sample space is now reduced to $S$ as we know the individual is a smoker. Once $S$ has occurred, the event of interest will occur only if the observed outcome is in $A \cap S$.
+
+In the original sample space $A \cap S$ has probability $P(A \cap S)$ with denominator $P(\Omega)=1$, but the conditioning has reduced the sample space, so the new probability is relative to this, i.e. $P(A \cap S)$ as a portion of $P(S)$.  In the Venn diagram below, the sample space has been reduced to the non-grey parts due to the conditioning.
+
+
+```{figure} Images/reduced_sample.png
+---
+height: 100px
+name: reduced_sample
+---
+Reduced sample space in conditional probability
+```
+
+This leads to the definition of conditional probability
+
+$$
+P(A|S) = \frac{P(A \cap S)}{P(S)}.
+$$
+
+Multiplying through by $P(S)$, we see this implies that
+
+$$
+P(A \cap S) = P(A|S) P(S).
+$$
+
+This relationship is symmetric, so also:
+
+$$
+P(A \cap S) = P(S|A) P(A).
+$$
+
+## Probability trees
+
+A good way of displaying and calculating simple conditional probabilities is through the use of a **probability tree**. The different outcomes are represented by the different branches of the tree.  The events in a probability tree are exhaustive (every possible event is accounted for) and mutually exclusive, so you must go along one branch and only one branch at each stage.
+
+The simplest form of a probability tree is shown in the figure below.  The second branches are all conditional probabilities, conditional on the events in each of the previous branches.  
+
+```{figure} Images/tree.png
+---
+height: 300px
+name: tree
+---
+Probability tree
+```
+
+
+To calculate the probability of taking a particular path through the tree, we multiply the probabilities of the corresponding branches. That this is correct is a consequence of our earlier result that
+
+$$
+P(A \cap S) = P(A|S) P(S).
+$$
+
+### Example 
+
+Suppose we know that in the population of interest the prevalence of smoking is 20\% among adults in general and that 9\% of smokers suffer asthma whereas 7\% of non-smokers have asthma.  This information can be represented in a probability tree.  Note that we are given $P(A)$, $P(A|S)$ and $P(A|\bar{S})$, so the first branch of the tree is for smoking status and the second branch is asthma status conditional on smoking status.
+
+```{figure} Images/asthma_tree.png
+---
+height: 300px
+name: asthma_tree
+---
+Probability tree for the asthma example
+```
+
+
+
+The probability of any intersection of asthma and smoking events can then be obtained by multiplying the probabilities along the branches of the tree leading to the tip which corresponds to the desired event. For example
+
+$$
+P(A \cap S) = P(S) \times P(A|S) = 0.2 \times 0.09 = 0.018.
+$$
+
+i.e. less than 2\% of the population are both asthma sufferers and smokers.
+
+Each tip of the tree represents an outcome of the "experiment", and together the corresponding probabilities sum to 1.
+
+## Independence
+
+A concept of fundamental importance in probability theory and medical statistics in particular is that of independence between events. Suppose that the occurrence of an event $A_{1}$ provides no information at all about the probability of a second event $A_{2}$ occurring (e.g. suppose that knowing someone was a smoker gave no information about whether or not they had asthma). 
+
+In that case, $P(A_{2}|A_{1})=P(A_{2})$. i.e. knowing that $A_{1}$ has occurred does not affect the probability that $A_{2}$ will occur. Then
+
+$$
+P(A_{1} \cap A_{2}) = P(A_{2}|A_{1}) P(A_{1}) = P(A_{2})P(A_{1}).
+$$
+
+The latter is usually how independence between two events $A_{1}$ and $A_{2}$ is formally defined, i.e. $A_{1}$ and $A_{2}$ are said to be **independent** if
+
+$$
+P(A_{1} \cap A_{2}) = P(A_{1}) \times P(A_{2}).
+$$
+
+This is known as the **multiplicative rule** of probability.

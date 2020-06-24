@@ -14,12 +14,11 @@ The code below installs the required packages, loads up the solutions and the mu
 
 ## Quiz
 
-This quiz tests materials in the notebook: 
-[Maths refresher](http://localhost:8890/notebooks/Documents/Work/Teaching/MSc_HDS/Statistics/Test_notebooks/maths_refresher.ipynb). If you are struggling with the questions go back and re-read the relevant material.
+This quiz tests materials in the section called "Functions, exponential and logarithm rules". If you are struggling with the questions go back and re-read the relevant material.
 
 Each question is initially set to a default value. Choose the correct value and press submit.
 
-Question 1:  What is $a^0$? 
+**Question 1**:  What is $a^0$? 
 
 1. $0$
 2. $1$
@@ -28,7 +27,7 @@ Question 1:  What is $a^0$?
 
  display(qs1["Q1_1"])
 
-Question 2: What is $3^2$?
+**Question 2**: What is $3^2$?
     
 1. $6$
 2. $8$
@@ -37,7 +36,7 @@ Question 2: What is $3^2$?
 
  display(qs1["Q1_2"])
 
-Question 3: What is $1^3$?
+**Question 3**: What is $1^3$?
     
 1. $1$
 2. $3$
@@ -46,7 +45,7 @@ Question 3: What is $1^3$?
 
  display(qs1["Q1_3"])
 
-Question 4: What is $2^{-3}$?
+**Question 4**: What is $2^{-3}$?
 
 1. $-6$
 2. $\frac{1}{8}$
@@ -55,7 +54,7 @@ Question 4: What is $2^{-3}$?
 
  display(qs1["Q1_4"])
 
-Question 5: What is $\frac{4^3}{4^5}$?
+**Question 5**: What is $\frac{4^3}{4^5}$?
 
 1. $4^8$
 2. $4^{-8}$
@@ -64,7 +63,7 @@ Question 5: What is $\frac{4^3}{4^5}$?
 
  display(qs1["Q1_5"])
 
-Question 6: What is $\left(3^{-3}\right)^3$?
+**Question 6**: What is $\left(3^{-3}\right)^3$?
 
 1. $1$
 2. $3^{-9}$
@@ -73,7 +72,7 @@ Question 6: What is $\left(3^{-3}\right)^3$?
 
  display(qs1["Q1_6"])
 
-Question 7: What is $\frac{5^2}{3^2}$?
+**Question 7**: What is $\frac{5^2}{3^2}$?
 
 1. $\left(\frac{5}{3}\right)^2$
 2. $\left(\frac{5}{3}\right)^{-2}$
@@ -82,7 +81,7 @@ Question 7: What is $\frac{5^2}{3^2}$?
 
  display(qs1["Q1_7"])
 
-Question 8: What is $4^3$?
+**Question 8**: What is $4^3$?
 
 1. $12$
 2. $16$
@@ -91,7 +90,7 @@ Question 8: What is $4^3$?
 
  display(qs1["Q1_8"])
 
-Question 9: What is $27^{-2/3}$?
+**Question 9**: What is $27^{-2/3}$?
 
 1. $\frac{1}{18}$
 2. $\frac{1}{81}$
@@ -100,7 +99,7 @@ Question 9: What is $27^{-2/3}$?
 
  display(qs1["Q1_9"])
 
-Question 10: What is $log_{10}(10^n)$?
+**Question 10**: What is $log_{10}(10^n)$?
 
 1. $10 n$
 2. $n$
@@ -109,7 +108,7 @@ Question 10: What is $log_{10}(10^n)$?
 
  display(qs1["Q1_10"])
 
-Question 11: What is $log_{10}\left(\frac{10^4}{10^{-3}}\right)$?
+**Question 11**: What is $log_{10}\left(\frac{10^4}{10^{-3}}\right)$?
 
 1. $10^7$
 2. $1$
@@ -118,7 +117,7 @@ Question 11: What is $log_{10}\left(\frac{10^4}{10^{-3}}\right)$?
 
  display(qs1["Q1_11"])
 
-Question 12: What is $\frac{1}{2} log_{10}(16)$?
+**Question 12**: What is $\frac{1}{2} log_{10}(16)$?
 
 1. $4$
 2. $8$
@@ -127,7 +126,7 @@ Question 12: What is $\frac{1}{2} log_{10}(16)$?
 
  display(qs1["Q1_12"])
 
-Question 13: What is $log_{10} [log_{10}(10)]$?
+**Question 13**: What is $log_{10} [log_{10}(10)]$?
 
 1. $10$
 2. $1$
@@ -136,7 +135,7 @@ Question 13: What is $log_{10} [log_{10}(10)]$?
 
  display(qs1["Q1_13"])
 
-Question 14: What is $\frac{log_{10}(1000)}{log_{10}(100)}$?
+**Question 14**: What is $\frac{log_{10}(1000)}{log_{10}(100)}$?
 
 1. $\frac{3}{2}$
 2. $1$
@@ -145,7 +144,7 @@ Question 14: What is $\frac{log_{10}(1000)}{log_{10}(100)}$?
 
  display(qs1["Q1_14"])
 
-Question 15: Simplify the function 
+**Question 15**: Simplify the function 
 
 $$ln \left( \prod_{i=1}^n p^x_i (1-p)^y_i \right)$$
 
@@ -158,7 +157,7 @@ Which of these can it be written as?
 
  display(qs1["Q1_15"])
 
-Question 16: Simplify the function 
+**Question 16**: Simplify the function 
 
 $$ln \left( \prod_{i=1}^n \frac{e^{-\lambda}\lambda^{x_i}}{x_i!} \right)$$
 

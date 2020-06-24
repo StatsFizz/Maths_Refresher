@@ -14,8 +14,7 @@ The code below installs the required packages, loads up the solutions and the mu
 
 ## Quiz
 
-This quiz tests materials in the notebook: 
-[Maths refresher](http://localhost:8890/notebooks/Documents/Work/Teaching/MSc_HDS/Statistics/Test_notebooks/maths_refresher.ipynb). If you are struggling with the questions go back and re-read the relevant material.
+This quiz tests materials in the section called "Differentiation and Integration". If you are struggling with the questions go back and re-read the relevant material.
 
 
 Each question is initially set to a default value. Choose the correct value and press submit.
@@ -24,7 +23,7 @@ Each question is initially set to a default value. Choose the correct value and 
 
 The first part contains questions on differentiation
 
-Question 1: Differentiate the function $f(x) = x^3$. 
+**Question 1**: Differentiate the function $f(x) = x^3$. 
 
 1. $3 x^3$
 2. $x^3$
@@ -33,7 +32,7 @@ Question 1: Differentiate the function $f(x) = x^3$.
 
  display(qs2["Q2_1"])
 
-Question 2: Differentiate the function $f(x) = x^{-7}$. 
+**Question 2**: Differentiate the function $f(x) = x^{-7}$. 
 
 1. $-7 x^{-8}$
 2. $\frac{x^{-9}}{9}$
@@ -42,7 +41,7 @@ Question 2: Differentiate the function $f(x) = x^{-7}$.
 
  display(qs2["Q2_2"])
 
-Question 3: Differentiate the function $f(x) = \sqrt{1+x^2}$. 
+**Question 3**: Differentiate the function $f(x) = \sqrt{1+x^2}$. 
 
 1. $\frac{2x}{(1 + x^2)^{1/2}}$
 2. $\frac{x (1 + x)^{-1/2}}{2}$
@@ -51,7 +50,7 @@ Question 3: Differentiate the function $f(x) = \sqrt{1+x^2}$.
 
  display(qs2["Q2_3"])
 
-Question 4: Differentiate the function $f(x) = \frac{1}{log_e(x)}$. 
+**Question 4**: Differentiate the function $f(x) = \frac{1}{log_e(x)}$. 
 
 1. $\frac{x}{log_e(x)}$
 2. $\frac{-1}{x(log_e(x))^2}$
@@ -60,7 +59,7 @@ Question 4: Differentiate the function $f(x) = \frac{1}{log_e(x)}$.
 
  display(qs2["Q2_4"])
 
-Question 5: Differentiate the function $f(x) = exp(4x)$. 
+**Question 5**: Differentiate the function $f(x) = exp(4x)$. 
 
 1. $4x \, exp(4x)$
 2. $4 e^{4x}$
@@ -69,7 +68,7 @@ Question 5: Differentiate the function $f(x) = exp(4x)$.
 
  display(qs2["Q2_5"])
 
-Question 6: Differentiate the function $f(x) = \frac{(1 + x)}{x^2}$. 
+**Question 6**: Differentiate the function $f(x) = \frac{(1 + x)}{x^2}$. 
 
 1. $-\frac{2(1+x)}{x^3}$
 2. $\frac{1}{x^2}$
@@ -78,7 +77,7 @@ Question 6: Differentiate the function $f(x) = \frac{(1 + x)}{x^2}$.
 
  display(qs2["Q2_6"])
 
-Question 7: Differentiate the function $f(x) = e^{3x^2}$. 
+**Question 7**: Differentiate the function $f(x) = e^{3x^2}$. 
 
 1. $3x^2 exp(3 x^2)$
 2. $e^{6x}$
@@ -87,7 +86,7 @@ Question 7: Differentiate the function $f(x) = e^{3x^2}$.
 
  display(qs2["Q2_7"])
 
-Question 8: Define 
+**Question 8**: Define 
 
 $$L = -\frac{(x - \mu)^2}{s} - \log(s)$$ 
 
@@ -112,7 +111,7 @@ Which of the following are correct?
 
 The next part contains questions on integration.
 
-Question 9: Perform the integration 
+**Question 9**: Perform the integration 
 
 $$\int 3 x^4 dx$$
 
@@ -127,7 +126,7 @@ where $c$ is a constant.
 
  display(qs2["Q2_9"])
 
-Question 10: Perform the integration 
+**Question 10**: Perform the integration 
 
 $$\int \frac{1}{x} dx$$
 
@@ -142,7 +141,7 @@ where $c$ is a constant.
 
  display(qs2["Q2_10"])
 
-Question 11: Perform the integration 
+**Question 11**: Perform the integration 
 
 $$\int \frac{x}{x^2-4} dx$$
     
@@ -157,7 +156,7 @@ where $c$ is a constant.
 
  display(qs2["Q2_11"])
 
-Question 12: Find the area under the curve for the following function:
+**Question 12**: Find the area under the curve for the following function:
 
 $$y = x^2$$
 
@@ -172,7 +171,7 @@ Choose the correct option:
 
  display(qs2["Q2_12"])
 
-Question 12: Find the area under the curve for the following function:
+**Question 13**: Find the area under the curve for the following function:
 
 $$y = x^3  – 3x$$
 

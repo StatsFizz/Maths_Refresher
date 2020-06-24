@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Probability - an introduction &#8212; Maths Refresher</title>
+    <title>Probability, definitions and axioms &#8212; Maths Refresher</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -31,8 +31,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Distributions" href="pr5_distributions.html" />
-    <link rel="prev" title="Matrices" href="mr3_matrices.html" />
+    <link rel="next" title="Probability Theorems" href="pr2_theorems.html" />
+    <link rel="prev" title="Combinatorics" href="cm_combinatorics.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -68,7 +68,7 @@
   
   <ul class="nav sidenav_l1">
   <li class="">
-    <a href="intro.html">Maths Refresher</a>
+    <a href="intro.html">Introduction</a>
   </li>
   <li class="">
     <a href="acknowledgements.html">Acknowledgements</a>
@@ -77,7 +77,7 @@
 <p class="margin-caption">Brief notes</p>
 </li>
   <li class="">
-    <a href="mr1_functions.html">Functions and calculus</a>
+    <a href="mr1_functions.html">Functions, exponential and logarithm rules</a>
   </li>
   <li class="">
     <a href="mr2_calculus.html">Differentiation and integration</a>
@@ -85,11 +85,26 @@
   <li class="">
     <a href="mr3_matrices.html">Matrices</a>
   </li>
+  <li class="">
+    <a href="cm_combinatorics.html">Combinatorics</a>
+  </li>
   <li class="active">
-    <a href="">Probability - an introduction</a>
+    <a href="">Probability, definitions and axioms</a>
   </li>
   <li class="">
-    <a href="pr5_distributions.html">Distributions</a>
+    <a href="pr2_theorems.html">Probability Theorems</a>
+  </li>
+  <li class="">
+    <a href="pr3_variables.html">Discrete Random Variables</a>
+  </li>
+  <li class="">
+    <a href="pr4_continuous_variables.html">Continuous Random Variables</a>
+  </li>
+  <li class="">
+    <a href="pr5_correlation.html">Correlation and covariance</a>
+  </li>
+  <li class="">
+    <a href="pr6_distributions.html">Distributions</a>
   </li>
 <li class="navbar-special">
 <p class="margin-caption">Test yourself</p>
@@ -99,6 +114,30 @@
   </li>
   <li class="">
     <a href="Quiz2.html">Quiz 2: Differentiation and integration</a>
+  </li>
+  <li class="">
+    <a href="Quiz3.html">Quiz 3: Matrices</a>
+  </li>
+  <li class="">
+    <a href="Quiz4.html">Quiz 4: Combinatorics</a>
+  </li>
+  <li class="">
+    <a href="Quiz5.html">Quiz 5: Probability</a>
+  </li>
+  <li class="">
+    <a href="Quiz6.html">Quiz 6: Probability theorems</a>
+  </li>
+  <li class="">
+    <a href="Quiz7.html">Quiz 7: Discrete Random Variables</a>
+  </li>
+  <li class="">
+    <a href="Quiz8.html">Quiz 8: Continuous Random Variables</a>
+  </li>
+  <li class="">
+    <a href="Quiz9.html">Quiz 9: Correlation and covariance</a>
+  </li>
+  <li class="">
+    <a href="Quiz10.html">Quiz 10: More complex questions</a>
   </li>
   <li class="">
     <a href="Solutions.html">Solution to quizzes</a>
@@ -186,7 +225,13 @@
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#useful-definitions" class="nav-link">Useful definitions</a>
+            <a href="#defining-events" class="nav-link">Defining events</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#example" class="nav-link">Example</a>
+        </li>
+    
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
@@ -203,6 +248,24 @@
             </ul>
         </li>
     
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#conditional-probability" class="nav-link">Conditional probability</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#probability-trees" class="nav-link">Probability trees</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#id1" class="nav-link">Example</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#independence" class="nav-link">Independence</a>
+        </li>
+    
     </ul>
 </nav>
 
@@ -214,8 +277,8 @@
         
               <div>
                 
-  <div class="section" id="probability-an-introduction">
-<h1>Probability - an introduction<a class="headerlink" href="#probability-an-introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="probability-definitions-and-axioms">
+<h1>Probability, definitions and axioms<a class="headerlink" href="#probability-definitions-and-axioms" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="defining-probability">
 <h2>Defining probability<a class="headerlink" href="#defining-probability" title="Permalink to this headline">¶</a></h2>
 <p>We all have some intuitive idea about what we mean by the word ‘probability’.</p>
@@ -266,12 +329,30 @@ P(\mbox{roll a six}) = \lim_{n \rightarrow \infty} \frac{\mbox{number of 6s in} 
 </li>
 </ul>
 </div>
-<div class="section" id="useful-definitions">
-<h2>Useful definitions<a class="headerlink" href="#useful-definitions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="defining-events">
+<h2>Defining events<a class="headerlink" href="#defining-events" title="Permalink to this headline">¶</a></h2>
 <p>An <strong>experiment</strong> is a process that produces one outcome from some set of alternatives.</p>
-<p>The <strong>sample space</strong> is the set of points representing all the possible outcomes of an experiment.</p>
+<p>The <strong>sample space</strong> is the set of points representing all the possible outcomes of an experiment. The sample space is often denoted by <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
 <p>Suppose the experiment involved selecting an individual at random from the above population and denoting their smoking and asthma status. If we let <span class="math notranslate nohighlight">\(A\)</span> denote having asthma and <span class="math notranslate nohighlight">\(S\)</span> being a smoker, we can write the sample space as <span class="math notranslate nohighlight">\(\{AS,A\bar{S},\bar{A}S,\bar{A}\bar{S}\}\)</span>, where <span class="math notranslate nohighlight">\(\bar{A}\)</span> denotes not having asthma.</p>
 <p>An <strong>event</strong> is a subset of the sample space, e.g. the event that a randomly selected individual is a smoker is <span class="math notranslate nohighlight">\(\{AS,\bar{A}S\}\)</span>.</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>One experiment might be as follows:</p>
+<ul class="simple">
+<li><p>Randomly select an individual from a population.</p></li>
+<li><p>Record asthma and smoking status (<span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(\overline{A}\)</span> and <span class="math notranslate nohighlight">\(S\)</span> or <span class="math notranslate nohighlight">\(\overline{S}\)</span>).</p></li>
+</ul>
+<p>The sample space contains four elements:</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega = \{AS, A\overline{S}, \overline{A}S, \overline{A}\overline{S} \}
+\]</div>
+<p>One event of interest would be the event that the selected individual is a smoker:</p>
+<div class="math notranslate nohighlight">
+\[
+\{AS,  \overline{A}S \}
+\]</div>
+</div>
 </div>
 <div class="section" id="venn-diagrams-and-set-notation">
 <h2>Venn diagrams and set notation<a class="headerlink" href="#venn-diagrams-and-set-notation" title="Permalink to this headline">¶</a></h2>
@@ -279,16 +360,20 @@ P(\mbox{roll a six}) = \lim_{n \rightarrow \infty} \frac{\mbox{number of 6s in} 
 <p>The <strong>union</strong> of two events <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, denote <span class="math notranslate nohighlight">\(X \cup Y\)</span>, is the event that either <span class="math notranslate nohighlight">\(X\)</span> occurs, or <span class="math notranslate nohighlight">\(Y\)</span> occurs, or both occur. For example, <span class="math notranslate nohighlight">\(A \cup S\)</span> is the event that the randomly selected individual has asthma, is a smoker, or has asthma and is a smoker.</p>
 <p>The <strong>intersection</strong> of two events <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, denoted <span class="math notranslate nohighlight">\(X \cap Y\)</span>, is the event that both <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> occur. It is sometimes referred to as the joint probability of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. For example <span class="math notranslate nohighlight">\(A \cap S\)</span> is the event that the randomly selected individual has asthma and is a smoker.</p>
 <p>The <strong>complement</strong> of an event <span class="math notranslate nohighlight">\(X\)</span>, denoted <span class="math notranslate nohighlight">\(\bar{X}\)</span>, is the event that <span class="math notranslate nohighlight">\(X\)</span> does not occur. The complement of <span class="math notranslate nohighlight">\(X\)</span> is also sometimes denoted <span class="math notranslate nohighlight">\(X'\)</span>.</p>
-<p>[Add venn diagrams]</p>
+<div class="figure align-default" id="venn">
+<a class="reference internal image-reference" href="_images/venn.png"><img alt="_images/venn.png" src="_images/venn.png" style="height: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Venn diagrams</span><a class="headerlink" href="#venn" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="axioms-of-probability">
 <h2>Axioms of probability<a class="headerlink" href="#axioms-of-probability" title="Permalink to this headline">¶</a></h2>
+<p>We write <span class="math notranslate nohighlight">\(P(A)\)</span> to denote the probability of event <span class="math notranslate nohighlight">\(A\)</span> occurring.</p>
 <p>The probabilities of events must follow the <strong>axioms</strong> of probability theory:</p>
-<ul class="simple">
+<ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(0 \leq P(A) \leq 1\)</span> for every event <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(P(\Omega)=1\)</span> where <span class="math notranslate nohighlight">\(\Omega\)</span> is the total sample space.</p></li>
 <li><p>For disjoint (mutually exclusive) events <span class="math notranslate nohighlight">\(A_{1},..,A_{n}\)</span>:</p></li>
-</ul>
+</ol>
 <div class="math notranslate nohighlight">
 \[
 P(A_{1} \cup A_{2} \cup \ldots \cup A_{n}) = P(A_{1}) + P(A_{2}) + \ldots + P(A_{n}).
@@ -311,6 +396,75 @@ P(A_{1} \cup A_{2}) = P(A_{1}) + P(A_{2}) - P(A_{1} \cap A_{2})
 <p>Proof is left as an exercise.</p>
 </div>
 </div>
+<div class="section" id="conditional-probability">
+<h2>Conditional probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h2>
+<p>Suppose that we know that an individual is a smoker. Given that event, what is the probability that the individual suffers from asthma? This is known as a <strong>conditional probability</strong>.</p>
+<p>We can write this as <span class="math notranslate nohighlight">\(P(A|S)\)</span>. This is called the conditional probability of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(S\)</span>, i.e. the sample space is now reduced to <span class="math notranslate nohighlight">\(S\)</span> as we know the individual is a smoker. Once <span class="math notranslate nohighlight">\(S\)</span> has occurred, the event of interest will occur only if the observed outcome is in <span class="math notranslate nohighlight">\(A \cap S\)</span>.</p>
+<p>In the original sample space <span class="math notranslate nohighlight">\(A \cap S\)</span> has probability <span class="math notranslate nohighlight">\(P(A \cap S)\)</span> with denominator <span class="math notranslate nohighlight">\(P(\Omega)=1\)</span>, but the conditioning has reduced the sample space, so the new probability is relative to this, i.e. <span class="math notranslate nohighlight">\(P(A \cap S)\)</span> as a portion of <span class="math notranslate nohighlight">\(P(S)\)</span>.  In the Venn diagram below, the sample space has been reduced to the non-grey parts due to the conditioning.</p>
+<div class="figure align-default" id="reduced-sample">
+<a class="reference internal image-reference" href="_images/reduced_sample.png"><img alt="_images/reduced_sample.png" src="_images/reduced_sample.png" style="height: 100px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Reduced sample space in conditional probability</span><a class="headerlink" href="#reduced-sample" title="Permalink to this image">¶</a></p>
+</div>
+<p>This leads to the definition of conditional probability</p>
+<div class="math notranslate nohighlight">
+\[
+P(A|S) = \frac{P(A \cap S)}{P(S)}.
+\]</div>
+<p>Multiplying through by <span class="math notranslate nohighlight">\(P(S)\)</span>, we see this implies that</p>
+<div class="math notranslate nohighlight">
+\[
+P(A \cap S) = P(A|S) P(S).
+\]</div>
+<p>This relationship is symmetric, so also:</p>
+<div class="math notranslate nohighlight">
+\[
+P(A \cap S) = P(S|A) P(A).
+\]</div>
+</div>
+<div class="section" id="probability-trees">
+<h2>Probability trees<a class="headerlink" href="#probability-trees" title="Permalink to this headline">¶</a></h2>
+<p>A good way of displaying and calculating simple conditional probabilities is through the use of a <strong>probability tree</strong>. The different outcomes are represented by the different branches of the tree.  The events in a probability tree are exhaustive (every possible event is accounted for) and mutually exclusive, so you must go along one branch and only one branch at each stage.</p>
+<p>The simplest form of a probability tree is shown in the figure below.  The second branches are all conditional probabilities, conditional on the events in each of the previous branches.</p>
+<div class="figure align-default" id="tree">
+<a class="reference internal image-reference" href="_images/tree.png"><img alt="_images/tree.png" src="_images/tree.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Probability tree</span><a class="headerlink" href="#tree" title="Permalink to this image">¶</a></p>
+</div>
+<p>To calculate the probability of taking a particular path through the tree, we multiply the probabilities of the corresponding branches. That this is correct is a consequence of our earlier result that</p>
+<div class="math notranslate nohighlight">
+\[
+P(A \cap S) = P(A|S) P(S).
+\]</div>
+<div class="section" id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Suppose we know that in the population of interest the prevalence of smoking is 20% among adults in general and that 9% of smokers suffer asthma whereas 7% of non-smokers have asthma.  This information can be represented in a probability tree.  Note that we are given <span class="math notranslate nohighlight">\(P(A)\)</span>, <span class="math notranslate nohighlight">\(P(A|S)\)</span> and <span class="math notranslate nohighlight">\(P(A|\bar{S})\)</span>, so the first branch of the tree is for smoking status and the second branch is asthma status conditional on smoking status.</p>
+<div class="figure align-default" id="asthma-tree">
+<a class="reference internal image-reference" href="_images/asthma_tree.png"><img alt="_images/asthma_tree.png" src="_images/asthma_tree.png" style="height: 300px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Probability tree for the asthma example</span><a class="headerlink" href="#asthma-tree" title="Permalink to this image">¶</a></p>
+</div>
+<p>The probability of any intersection of asthma and smoking events can then be obtained by multiplying the probabilities along the branches of the tree leading to the tip which corresponds to the desired event. For example</p>
+<div class="math notranslate nohighlight">
+\[
+P(A \cap S) = P(S) \times P(A|S) = 0.2 \times 0.09 = 0.018.
+\]</div>
+<p>i.e. less than 2% of the population are both asthma sufferers and smokers.</p>
+<p>Each tip of the tree represents an outcome of the “experiment”, and together the corresponding probabilities sum to 1.</p>
+</div>
+</div>
+<div class="section" id="independence">
+<h2>Independence<a class="headerlink" href="#independence" title="Permalink to this headline">¶</a></h2>
+<p>A concept of fundamental importance in probability theory and medical statistics in particular is that of independence between events. Suppose that the occurrence of an event <span class="math notranslate nohighlight">\(A_{1}\)</span> provides no information at all about the probability of a second event <span class="math notranslate nohighlight">\(A_{2}\)</span> occurring (e.g. suppose that knowing someone was a smoker gave no information about whether or not they had asthma).</p>
+<p>In that case, <span class="math notranslate nohighlight">\(P(A_{2}|A_{1})=P(A_{2})\)</span>. i.e. knowing that <span class="math notranslate nohighlight">\(A_{1}\)</span> has occurred does not affect the probability that <span class="math notranslate nohighlight">\(A_{2}\)</span> will occur. Then</p>
+<div class="math notranslate nohighlight">
+\[
+P(A_{1} \cap A_{2}) = P(A_{2}|A_{1}) P(A_{1}) = P(A_{2})P(A_{1}).
+\]</div>
+<p>The latter is usually how independence between two events <span class="math notranslate nohighlight">\(A_{1}\)</span> and <span class="math notranslate nohighlight">\(A_{2}\)</span> is formally defined, i.e. <span class="math notranslate nohighlight">\(A_{1}\)</span> and <span class="math notranslate nohighlight">\(A_{2}\)</span> are said to be <strong>independent</strong> if</p>
+<div class="math notranslate nohighlight">
+\[
+P(A_{1} \cap A_{2}) = P(A_{1}) \times P(A_{2}).
+\]</div>
+<p>This is known as the <strong>multiplicative rule</strong> of probability.</p>
+</div>
 </div>
 
 
@@ -322,8 +476,8 @@ P(A_{1} \cup A_{2}) = P(A_{1}) + P(A_{2}) - P(A_{1} \cap A_{2})
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="mr3_matrices.html" title="previous page">Matrices</a>
-    <a class='right-next' id="next-link" href="pr5_distributions.html" title="next page">Distributions</a>
+    <a class='left-prev' id="prev-link" href="cm_combinatorics.html" title="previous page">Combinatorics</a>
+    <a class='right-next' id="next-link" href="pr2_theorems.html" title="next page">Probability Theorems</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
