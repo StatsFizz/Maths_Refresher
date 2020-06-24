@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Differentiation and integration &#8212; Maths Refresher</title>
+    <title>Probability Theorems &#8212; Maths Refresher</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -31,8 +31,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Matrices" href="mr3_matrices.html" />
-    <link rel="prev" title="Functions, exponential and logarithm rules" href="mr1_functions.html" />
+    <link rel="next" title="Discrete Random Variables" href="pr3_variables.html" />
+    <link rel="prev" title="Probability, definitions and axioms" href="pr1_probability.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -79,8 +79,8 @@
   <li class="">
     <a href="mr1_functions.html">Functions, exponential and logarithm rules</a>
   </li>
-  <li class="active">
-    <a href="">Differentiation and integration</a>
+  <li class="">
+    <a href="mr2_calculus.html">Differentiation and integration</a>
   </li>
   <li class="">
     <a href="mr3_matrices.html">Matrices</a>
@@ -91,8 +91,8 @@
   <li class="">
     <a href="pr1_probability.html">Probability, definitions and axioms</a>
   </li>
-  <li class="">
-    <a href="pr2_theorems.html">Probability Theorems</a>
+  <li class="active">
+    <a href="">Probability Theorems</a>
   </li>
   <li class="">
     <a href="pr3_variables.html">Discrete Random Variables</a>
@@ -185,7 +185,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="_sources/mr2_calculus.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <a class="dropdown-buttons" href="_sources/pr2_theorems.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -204,7 +204,7 @@
             <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
             <div class="dropdown-buttons">
                 
-                <a class="binder-button" href="https://mybinder.org/v2/gh/StatsFizz/Maths_Refresher/master?urlpath=tree/mr2_calculus.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                <a class="binder-button" href="https://mybinder.org/v2/gh/StatsFizz/Maths_Refresher/master?urlpath=tree/pr2_theorems.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
                 
                 
                 
@@ -221,15 +221,21 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#some-rules-for-differentiation" class="nav-link">Some rules for differentiation</a>
+            <a href="#partitions" class="nav-link">Partitions</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#examples" class="nav-link">Examples</a>
+        </li>
+    
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#note-on-partial-differentiation" class="nav-link">Note on partial differentiation</a>
+            <a href="#theorem-of-total-probability" class="nav-link">Theorem of total probability</a>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#integration" class="nav-link">Integration</a>
+            <a href="#bayes-theorem" class="nav-link">Bayes theorem</a>
         </li>
     
     </ul>
@@ -243,68 +249,83 @@
         
               <div>
                 
-  <div class="section" id="differentiation-and-integration">
-<h1>Differentiation and integration<a class="headerlink" href="#differentiation-and-integration" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="some-rules-for-differentiation">
-<h2>Some rules for differentiation<a class="headerlink" href="#some-rules-for-differentiation" title="Permalink to this headline">¶</a></h2>
-<p>Some simple rules are:</p>
+  <div class="section" id="probability-theorems">
+<h1>Probability Theorems<a class="headerlink" href="#probability-theorems" title="Permalink to this headline">¶</a></h1>
+<p>This section discusses two key theorems:</p>
+<ol class="simple">
+<li><p>The theorem of total probability, and</p></li>
+<li><p>Bayes theorem</p></li>
+</ol>
+<div class="section" id="partitions">
+<h2>Partitions<a class="headerlink" href="#partitions" title="Permalink to this headline">¶</a></h2>
+<p>The theorem of total probability involves the concept of a partition of a sample space. So we begin by defining a partition.</p>
+<p>The events <span class="math notranslate nohighlight">\(B_{1},B_{2},...B_{n}\)</span> partition the sample space <span class="math notranslate nohighlight">\(\Omega\)</span> if</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(B_{i}) &gt; 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> (all events in the partition have non-zero probability of occurring)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\bigcup^{n}_{i=1} B_{i} = \Omega\)</span> (i.e. the union of the events = the sample space)</p></li>
+<li><p><span class="math notranslate nohighlight">\(B_{i} \cap B_{j} = \emptyset\)</span> (empty) for all <span class="math notranslate nohighlight">\(i \neq j\)</span>,  . i.e. <span class="math notranslate nohighlight">\(B_{i}\)</span> and <span class="math notranslate nohighlight">\(B_{j}\)</span> are disjoint</p></li>
+</ul>
+<p>That is, the events <span class="math notranslate nohighlight">\(B_{1},...,B_{n}\)</span> partition the sample space if</p>
+<ul class="simple">
+<li><p>all events are possible</p></li>
+<li><p>at least one event must occur, but</p></li>
+<li><p>no two events can occur simultaneously</p></li>
+</ul>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Some examples of partitions of sample spaces are:</p>
+<ul class="simple">
+<li><p>Blood groups A, B, AB and O partition the sample space of blood groups.</p></li>
+<li><p>Dead and alive partition the sample space of vital statuses.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="theorem-of-total-probability">
+<h2>Theorem of total probability<a class="headerlink" href="#theorem-of-total-probability" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes we wish to know the probability of a particular event <span class="math notranslate nohighlight">\(A\)</span>, but we only have data regarding the probability of the event conditional on some other event. The theorem of total probability allows us to express the probability of an event <span class="math notranslate nohighlight">\(A\)</span> occurring in terms of other events which partition the sample space.</p>
+<p>Let <span class="math notranslate nohighlight">\(A\)</span> be some event, and let <span class="math notranslate nohighlight">\(B_1, ..., B_n\)</span> be a partition of the sample space</p>
+<p>Then the theorem of total probability says that</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} a = 0\]</div>
+\[
+P(A) = P(A | B_1)P(B_1) + P(A | B_2)P(B_2) + ... + P(A | B_n)P(B_n)
+\]</div>
+<p>or equivalently</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} (a x) = a\]</div>
+\[
+P(A) = \sum_{j=1}^n P(A | B_j)P(B_j)
+\]</div>
+<p>That is, the total probability of <span class="math notranslate nohighlight">\(A\)</span> can be calculated if the conditional probability of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B_j\)</span> and
+<span class="math notranslate nohighlight">\(P(B_j)\)</span> are known, for all <span class="math notranslate nohighlight">\(j\)</span>.</p>
+</div>
+<div class="section" id="bayes-theorem">
+<h2>Bayes theorem<a class="headerlink" href="#bayes-theorem" title="Permalink to this headline">¶</a></h2>
+<p>In the theorem of total probability, <span class="math notranslate nohighlight">\(P(A)\)</span> is calculated using the knowledge of the conditional probabilities of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(P(A|B)\)</span>.  In many situations we would like to make statements about the probability of <span class="math notranslate nohighlight">\(B\)</span> knowing or conditional on <span class="math notranslate nohighlight">\(A\)</span>, i.e. we would like to reverse the conditioning. Bayes’ Theorem provides a useful and very powerful theorem to do this.</p>
+<p>From the definition of conditional probability we can express <span class="math notranslate nohighlight">\(P(A \cap B_{j})\)</span> in two different ways</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} x^n = n x^{n – 1}\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} log_e(x) = \frac{1}{x}\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} e^x  = e^x\]</div>
-<p>And some rules about dealing with differentiating functions, sums and products:</p>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} e^{F(x)} = \frac{dF(x)}{dx} e^{F(x)} = F’(x) e^{F(x)}\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} (F(x)+L(x)) =  F’(x) + L’(x)\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} (F(x) . L(x)) = L(x).F’(x) + F(x).L’(x)\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} \left(\frac{F(x)}{L(x)}\right) = \frac{(F'(x))}{(L(x))} -  \frac{(F(x).L'(x))}{([L(x)]^2)}\]</div>
+\[\begin{split}
+P(A \cap B_{j}) = P(A|B_{j}) P(B_{j}) \\
+\end{split}\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} \left(\frac{F(x)}{L(x)}\right) = \frac{(F'(x)L(x) - L'(x)F(x))}{(L(x)^2)}\]</div>
-<p>In general, the chain rule is very helpful.</p>
+\[
+P(A \cap B_{j}) = P(B_{j}|A) P(A).
+\]</div>
+<p>Equating the two, we therefore have</p>
 <div class="math notranslate nohighlight">
-\[\mbox{The chain rule}: \frac{dy}{dx} = \frac{dy}{du} \times \frac{du}{dx}\]</div>
-</div>
-<div class="section" id="note-on-partial-differentiation">
-<h2>Note on partial differentiation<a class="headerlink" href="#note-on-partial-differentiation" title="Permalink to this headline">¶</a></h2>
-<p>Suppose we have a function, <span class="math notranslate nohighlight">\(F\)</span>, of two variables, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
-<p>We can differentiate the function <span class="math notranslate nohighlight">\(F\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(\frac{\partial F}{\partial x}\)</span>. This means we differentiate <span class="math notranslate nohighlight">\(F\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span> and consider all other variables (i.e. <span class="math notranslate nohighlight">\(y\)</span>) to be fixed.</p>
-<p>Similarly, we can obtain the partial derivative of <span class="math notranslate nohighlight">\(F\)</span> with respect to <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(\frac{\partial F}{\partial y}\)</span>.</p>
-<p>There are now various second derivatives. We can differentiate with respect to <span class="math notranslate nohighlight">\(x\)</span> twice, <span class="math notranslate nohighlight">\(\frac{\partial^2 F}{\partial x^2}\)</span>, differentiate with respect to <span class="math notranslate nohighlight">\(y\)</span> twice,  <span class="math notranslate nohighlight">\(\frac{\partial^2 F}{\partial y^2}\)</span>, or differentiate with respect to <span class="math notranslate nohighlight">\(x\)</span> and then differentiate with respect to <span class="math notranslate nohighlight">\(y\)</span>,  <span class="math notranslate nohighlight">\(\frac{\partial^2 F}{\partial x \partial y}\)</span>. Doing the last steps in the opposite order gives <span class="math notranslate nohighlight">\(\frac{\partial^2 F}{\partial y \partial x}\)</span>.</p>
-</div>
-<div class="section" id="integration">
-<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
-<p>Some important integrals. Note, the constant is ommitted below, for brevity.</p>
+\[
+P(A|B_{j}) P(B_{j}) = P(B_{j}|A) P(A) \ \ \Rightarrow \ \ P(B_{j}|A) = \frac{P(A|B_{j}) P(B_{j})}{P(A)}
+\]</div>
+<p>From the theorem of total probability (above) we know that</p>
 <div class="math notranslate nohighlight">
-\[\int a \, dx = ax\]</div>
+\[
+P(A) = \sum^{n}_{k=1} P(A|B_{k}) P(B_{k})
+\]</div>
+<p>And so we can write</p>
 <div class="math notranslate nohighlight">
-\[\int a f(x) dx =  a \int f(x) dx\]</div>
-<div class="math notranslate nohighlight">
-\[\int x^n dx = \frac{x^{n+1}}{n+1}\]</div>
-<div class="math notranslate nohighlight">
-\[\int F’(x) [F(x)]^n dx = \frac{[F(x)]^{(n+1)}}{(n+1)}\]</div>
-<div class="math notranslate nohighlight">
-\[\int e^x dx = e^x\]</div>
-<div class="math notranslate nohighlight">
-\[\int F’(x) e^{F(x)}  dx = e^{F(x)}\]</div>
-<div class="math notranslate nohighlight">
-\[\int \frac{1}{x} = log_e (x)\]</div>
-<div class="math notranslate nohighlight">
-\[\int \frac{F'(x)}{F(x)} dx = log_e (F(x))\]</div>
-<div class="math notranslate nohighlight">
-\[\int (F(x) + L(x)) dx = \int F(x) dx + \int L(x) dx\]</div>
-<p>Integrating by parts:</p>
-<div class="math notranslate nohighlight">
-\[\int_a^b u \frac{dv}{dx}dx= [uv]_a^b - \int_a^b v  \frac{du}{dx}dx\]</div>
+\[
+P(B_{j}|A) = \frac{P(A|B_{j}) P(B_{j})}{P(A)} = \frac{P(A|B_{j}) P(B_{j})}{\sum^{n}_{k=1} P(A|B_{k}) P(B_{k})}.
+\]</div>
+<p>This is <strong>Bayes’ Theorem</strong>.</p>
 </div>
 </div>
 
@@ -317,8 +338,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="mr1_functions.html" title="previous page">Functions, exponential and logarithm rules</a>
-    <a class='right-next' id="next-link" href="mr3_matrices.html" title="next page">Matrices</a>
+    <a class='left-prev' id="prev-link" href="pr1_probability.html" title="previous page">Probability, definitions and axioms</a>
+    <a class='right-next' id="next-link" href="pr3_variables.html" title="next page">Discrete Random Variables</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

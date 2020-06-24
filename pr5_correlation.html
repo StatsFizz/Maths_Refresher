@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Differentiation and integration &#8212; Maths Refresher</title>
+    <title>Correlation and covariance &#8212; Maths Refresher</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -31,8 +31,8 @@
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Matrices" href="mr3_matrices.html" />
-    <link rel="prev" title="Functions, exponential and logarithm rules" href="mr1_functions.html" />
+    <link rel="next" title="Distributions" href="pr6_distributions.html" />
+    <link rel="prev" title="Continuous Random Variables" href="pr4_continuous_variables.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -79,8 +79,8 @@
   <li class="">
     <a href="mr1_functions.html">Functions, exponential and logarithm rules</a>
   </li>
-  <li class="active">
-    <a href="">Differentiation and integration</a>
+  <li class="">
+    <a href="mr2_calculus.html">Differentiation and integration</a>
   </li>
   <li class="">
     <a href="mr3_matrices.html">Matrices</a>
@@ -100,8 +100,8 @@
   <li class="">
     <a href="pr4_continuous_variables.html">Continuous Random Variables</a>
   </li>
-  <li class="">
-    <a href="pr5_correlation.html">Correlation and covariance</a>
+  <li class="active">
+    <a href="">Correlation and covariance</a>
   </li>
   <li class="">
     <a href="pr6_distributions.html">Distributions</a>
@@ -185,7 +185,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="_sources/mr2_calculus.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <a class="dropdown-buttons" href="_sources/pr5_correlation.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -204,7 +204,7 @@
             <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
             <div class="dropdown-buttons">
                 
-                <a class="binder-button" href="https://mybinder.org/v2/gh/StatsFizz/Maths_Refresher/master?urlpath=tree/mr2_calculus.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                <a class="binder-button" href="https://mybinder.org/v2/gh/StatsFizz/Maths_Refresher/master?urlpath=tree/pr5_correlation.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
                 
                 
                 
@@ -221,15 +221,27 @@
     <ul class="nav section-nav flex-column">
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#some-rules-for-differentiation" class="nav-link">Some rules for differentiation</a>
+            <a href="#covariance" class="nav-link">Covariance</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#linear-association" class="nav-link">Linear association</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#rules-of-covariance" class="nav-link">Rules of covariance</a>
+        </li>
+    
+            </ul>
         </li>
     
         <li class="nav-item toc-entry toc-h2">
-            <a href="#note-on-partial-differentiation" class="nav-link">Note on partial differentiation</a>
+            <a href="#correlation" class="nav-link">Correlation</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#example" class="nav-link">Example</a>
         </li>
     
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#integration" class="nav-link">Integration</a>
+            </ul>
         </li>
     
     </ul>
@@ -243,68 +255,90 @@
         
               <div>
                 
-  <div class="section" id="differentiation-and-integration">
-<h1>Differentiation and integration<a class="headerlink" href="#differentiation-and-integration" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="some-rules-for-differentiation">
-<h2>Some rules for differentiation<a class="headerlink" href="#some-rules-for-differentiation" title="Permalink to this headline">¶</a></h2>
-<p>Some simple rules are:</p>
+  <div class="section" id="correlation-and-covariance">
+<h1>Correlation and covariance<a class="headerlink" href="#correlation-and-covariance" title="Permalink to this headline">¶</a></h1>
+<p>Correlation and covariance are measures of the degree of relationship between two continuous random variables.</p>
+<div class="section" id="covariance">
+<h2>Covariance<a class="headerlink" href="#covariance" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> be two random variables which are not necessarily independent. Then the variance of their sum is found as</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} a = 0\]</div>
+\[
+Var(X+Y) = E\left(((X+Y)-(E(X)+E(Y)))^{2}\right) 
+\]</div>
+<p>This can be written as</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} (a x) = a\]</div>
+\[ E\left(((X-E(X)) + (Y-E(Y)))^{2}\right) 
+\]</div>
+<p>which equals</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} x^n = n x^{n – 1}\]</div>
+\[
+E\left((X-E(X))^{2} + (Y-E(Y))^{2} + 2(X-E(X))(Y-E(Y)) \right) 
+\]</div>
+<p>We can now write this as:</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} log_e(x) = \frac{1}{x}\]</div>
+\[
+Var(X+Y) = Var(X) + Var(Y) + 2E((X-E(X))(Y-E(Y))) 
+\]</div>
+<p>We define the covariance between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> as:</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} e^x  = e^x\]</div>
-<p>And some rules about dealing with differentiating functions, sums and products:</p>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} e^{F(x)} = \frac{dF(x)}{dx} e^{F(x)} = F’(x) e^{F(x)}\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} (F(x)+L(x)) =  F’(x) + L’(x)\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} (F(x) . L(x)) = L(x).F’(x) + F(x).L’(x)\]</div>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} \left(\frac{F(x)}{L(x)}\right) = \frac{(F'(x))}{(L(x))} -  \frac{(F(x).L'(x))}{([L(x)]^2)}\]</div>
-<p>or</p>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dx} \left(\frac{F(x)}{L(x)}\right) = \frac{(F'(x)L(x) - L'(x)F(x))}{(L(x)^2)}\]</div>
-<p>In general, the chain rule is very helpful.</p>
-<div class="math notranslate nohighlight">
-\[\mbox{The chain rule}: \frac{dy}{dx} = \frac{dy}{du} \times \frac{du}{dx}\]</div>
+\[
+Cov(X,Y) = E\left( (X-E(X)) (Y-E(Y)) \right)
+\]</div>
+<p>From its definition we see that if when <span class="math notranslate nohighlight">\(X-E(X)\)</span> tends to be positive, <span class="math notranslate nohighlight">\(Y-E(Y)\)</span> tends to be positive, then <span class="math notranslate nohighlight">\(Cov(X,Y)&gt;0\)</span>. Conversely, if when <span class="math notranslate nohighlight">\(X-E(X)\)</span> tends to be positive, <span class="math notranslate nohighlight">\(Y-E(Y)\)</span> tends to be negative, then <span class="math notranslate nohighlight">\(Cov(X,Y)&lt;0\)</span>.</p>
+<p>Returning to the equation above, for two random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>
+<span class="math notranslate nohighlight">\($
+Var(X+Y) =  Var(X) + Var(Y) + 2Cov(X,Y)
+$\)</span></p>
+<div class="section" id="linear-association">
+<h3>Linear association<a class="headerlink" href="#linear-association" title="Permalink to this headline">¶</a></h3>
+<p><strong>Note</strong> It is important to remember that covariance is only a measure of <em>linear</em> association. Two variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> can be strongly dependent, yet have zero covariance.</p>
 </div>
-<div class="section" id="note-on-partial-differentiation">
-<h2>Note on partial differentiation<a class="headerlink" href="#note-on-partial-differentiation" title="Permalink to this headline">¶</a></h2>
-<p>Suppose we have a function, <span class="math notranslate nohighlight">\(F\)</span>, of two variables, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>.</p>
-<p>We can differentiate the function <span class="math notranslate nohighlight">\(F\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(\frac{\partial F}{\partial x}\)</span>. This means we differentiate <span class="math notranslate nohighlight">\(F\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span> and consider all other variables (i.e. <span class="math notranslate nohighlight">\(y\)</span>) to be fixed.</p>
-<p>Similarly, we can obtain the partial derivative of <span class="math notranslate nohighlight">\(F\)</span> with respect to <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(\frac{\partial F}{\partial y}\)</span>.</p>
-<p>There are now various second derivatives. We can differentiate with respect to <span class="math notranslate nohighlight">\(x\)</span> twice, <span class="math notranslate nohighlight">\(\frac{\partial^2 F}{\partial x^2}\)</span>, differentiate with respect to <span class="math notranslate nohighlight">\(y\)</span> twice,  <span class="math notranslate nohighlight">\(\frac{\partial^2 F}{\partial y^2}\)</span>, or differentiate with respect to <span class="math notranslate nohighlight">\(x\)</span> and then differentiate with respect to <span class="math notranslate nohighlight">\(y\)</span>,  <span class="math notranslate nohighlight">\(\frac{\partial^2 F}{\partial x \partial y}\)</span>. Doing the last steps in the opposite order gives <span class="math notranslate nohighlight">\(\frac{\partial^2 F}{\partial y \partial x}\)</span>.</p>
+<div class="section" id="rules-of-covariance">
+<h3>Rules of covariance<a class="headerlink" href="#rules-of-covariance" title="Permalink to this headline">¶</a></h3>
+<p>There are various rules which covariance follows, resulting from its definition in terms of expectations. For example:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Cov(X,X) = Var(X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Cov(X, Y) = Cov(Y, X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Cov(aX, bY) = abCov(X, Y)\)</span></p></li>
+</ul>
+<p>Try proving the first one for yourself.</p>
+<p>And some slightly more complex rules (for reference):</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Cov(aR+bS,cX+dY) = acCov(R,X) + adCov(R,Y) + bc Cov(S,X) + bd Cov(S,Y)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Cov(aX+bY,cX+dY) = acVar(X) + bdVar(Y) + (ad+bc)Cov(Y,X)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Cov(X + Y, X - Y) = Var(X) - Var(Y)\)</span></p></li>
+</ul>
 </div>
-<div class="section" id="integration">
-<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
-<p>Some important integrals. Note, the constant is ommitted below, for brevity.</p>
+</div>
+<div class="section" id="correlation">
+<h2>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h2>
+<p>The size of <span class="math notranslate nohighlight">\(Cov(X,Y)\)</span> depends on the scale/magnitude of variability of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>. The correlation between <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> is a standardised version of the covariance.</p>
 <div class="math notranslate nohighlight">
-\[\int a \, dx = ax\]</div>
-<div class="math notranslate nohighlight">
-\[\int a f(x) dx =  a \int f(x) dx\]</div>
-<div class="math notranslate nohighlight">
-\[\int x^n dx = \frac{x^{n+1}}{n+1}\]</div>
-<div class="math notranslate nohighlight">
-\[\int F’(x) [F(x)]^n dx = \frac{[F(x)]^{(n+1)}}{(n+1)}\]</div>
-<div class="math notranslate nohighlight">
-\[\int e^x dx = e^x\]</div>
-<div class="math notranslate nohighlight">
-\[\int F’(x) e^{F(x)}  dx = e^{F(x)}\]</div>
-<div class="math notranslate nohighlight">
-\[\int \frac{1}{x} = log_e (x)\]</div>
-<div class="math notranslate nohighlight">
-\[\int \frac{F'(x)}{F(x)} dx = log_e (F(x))\]</div>
-<div class="math notranslate nohighlight">
-\[\int (F(x) + L(x)) dx = \int F(x) dx + \int L(x) dx\]</div>
-<p>Integrating by parts:</p>
-<div class="math notranslate nohighlight">
-\[\int_a^b u \frac{dv}{dx}dx= [uv]_a^b - \int_a^b v  \frac{du}{dx}dx\]</div>
+\[
+Corr(X,Y) = \frac{Cov(X,Y)}{SD(X)SD(Y)} = \frac{Cov(X,Y)}{\sqrt{V(X)V(Y)}}.
+\]</div>
+<ul class="simple">
+<li><p>The correlation coefficient lies between -1 and 1.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Corr(X,Y)=1\)</span> or <span class="math notranslate nohighlight">\(Corr(X,Y)=-1\)</span> means <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are perfectly correlated. However, it is important to remember that this does <em>not</em> necessarily mean <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are equal. For example, if <span class="math notranslate nohighlight">\(Y=2X\)</span>, they have correlation 1 but are not equal to each other.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Corr(X,Y)=0\)</span> does <strong>not</strong> mean <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> are independent. It is possible for two variables to be strongly dependent (associated) yet have zero correlation.</p></li>
+</ul>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>In the figure below, try to guess what the correlation between the two variables is. Once you’ve had a think, click the button on the right to see the correct values.</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="_images/correlation.png"><img alt="_images/correlation.png" src="_images/correlation.png" style="height: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Examples of correlation between variables</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="toggle docutils container">
+<p>Answers:</p>
+<ul class="simple">
+<li><p>top left 0.8 - strong positive correlation</p></li>
+<li><p>top right-0.55 - moderately strong negative correlation</p></li>
+<li><p>bottom left 0.001 - no relationship, no correlation</p></li>
+<li><p>bottom right -0.07 - strong dependence but no linear association so no correlation</p></li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 
@@ -317,8 +351,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="mr1_functions.html" title="previous page">Functions, exponential and logarithm rules</a>
-    <a class='right-next' id="next-link" href="mr3_matrices.html" title="next page">Matrices</a>
+    <a class='left-prev' id="prev-link" href="pr4_continuous_variables.html" title="previous page">Continuous Random Variables</a>
+    <a class='right-next' id="next-link" href="pr6_distributions.html" title="next page">Distributions</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
