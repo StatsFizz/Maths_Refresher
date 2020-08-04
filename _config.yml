@@ -19,3 +19,5 @@ repository:
 # Configure your Binder links, such as the URL of the BinderHub.
 launch_buttons:
   binderhub_url             : https://mybinder.org
+
+exclude_patterns: [README/*]

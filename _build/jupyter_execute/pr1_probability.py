@@ -169,7 +169,6 @@ name: tree
 Probability tree
 ```
 
-
 To calculate the probability of taking a particular path through the tree, we multiply the probabilities of the corresponding branches. That this is correct is a consequence of our earlier result that
 
 $$

@@ -36,6 +36,7 @@ $$
 From its definition we see that if when $X-E(X)$ tends to be positive, $Y-E(Y)$ tends to be positive, then $Cov(X,Y)>0$. Conversely, if when $X-E(X)$ tends to be positive, $Y-E(Y)$ tends to be negative, then $Cov(X,Y)<0$.
 
 Returning to the equation above, for two random variables $X$ and $Y$ 
+
 $$
 Var(X+Y) =  Var(X) + Var(Y) + 2Cov(X,Y)
 $$

@@ -143,8 +143,7 @@ $$
 f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{\frac{(x - \mu)^2}{2 \sigma^2}}
 $$
 
-A special case of the normal distribution is the **standard normal**, which is a normal distribution with mean 0 and variance 1.
- 
+
 The code below randomly draws 1000 observations from a normal distribution. If you are reading these notes interactively, try changing the values $\mu$ and $\sigma^2$ in the first two lines and see how the histogram of values change.
 
 If you would like to see the values generated, try adding the lines of code `head(r)` and `summary(r)`.
@@ -153,6 +152,29 @@ mu <- 13
 sigma2 <- 5
 X <- rnorm(1000, mu, sigma2)
 hist(X)
+
+#### The standard normal distribution
+
+A special case of the normal distribution is the **standard normal**, which is a normal distribution with mean 0 and variance 1. We often use the letter $Z$ to denote a variable that follows a standard normal distribution. For a standard normal variable, $Z$, 95% of the distribution is contained between -1.96 and +1.96:
+
+$$
+P(-1.96 < Z < 1.96) = 0.95
+$$
+
+A useful property of normal distributions is that any normal distribution can be transformed to the standard normal distribution by subtracting the mean and dividing through by the standard deviation. So if 
+
+$$
+X \sim N(\mu, \sigma^2)
+$$
+
+then 
+
+$$
+\frac{X - \mu}{\sigma} \sim N(0, 1)
+$$
+
+One consequence of this is that for any normal distribution, 95% of the observations are contained within $\pm 1.96 \sigma$ of the mean $\mu$.
+
 
 ### The exponential distribution
 
@@ -183,22 +205,22 @@ hist(X)
 
 Student's t-distribution arises as the ratio of the sample mean to its standard error, which you will learn more about in the inference course. The t-distribution has a complex density function which we shall not state here. 
 
-For now we note that the t-distribution has an additional parameter of sorts, known as the *degrees of freedom* (d.f.). The density function is similar to that of the standard normal, but the t-distribution has heavier tails. If $X$ follows a t-distribution with $\nu$ degrees of freedom, we write
+For now we note that the t-distribution has an additional parameter of sorts, known as the *degrees of freedom* (d.f.). The density function is similar to that of the standard normal, but the t-distribution has heavier tails. We often use $T$ to denote a variable which follows a t-distribution. If $T$ follows a t-distribution with $\nu$ degrees of freedom, we write
 
 $$
-X \sim t_\nu
+T \sim t_\nu
 $$
 
 The expectation and variance of a variable $X$ which follows a t-distribution with $\nu$ degrees of freedom are given by:
 
-- $E(X) = 0$
-- $Var(X) = \frac{\nu}{\nu - 2}$ if $\nu >2$; $\infty$ for $1<\nu \leq 2$; undefined otherwise 
+- $E(T) = 0$
+- $Var(T) = \frac{\nu}{\nu - 2}$ if $\nu >2$; $\infty$ for $1<\nu \leq 2$; undefined otherwise 
 
 As the number of degrees of freedom increases the t-distribution gets closer and closer to the standard normal distribution. In the code below (if using interactively), try decreasing and increasing the degrees of freedom to see how the shape of the distribution changes.
 
 df <- 18
-X <- rt(1000, 18)
-hist(X)
+T <- rt(1000, 18)
+hist(T)
 
 ### Chi-squared distribution
 
@@ -218,8 +240,8 @@ $$
 
 The expectation and variance of $Q$ are given by:
 
-- $E(X) = n$
-- $Var(X) = 2 n$
+- $E(Q) = n$
+- $Var(Q) = 2 n$
 
 The probability distribution function is complex and not stated here. 
 
@@ -227,8 +249,8 @@ The chi-squared distribution is used in a number of areas of statistics, such as
 
 
 df <- 18
-X <- rchisq(1000, 18)
-hist(X)
+Q <- rchisq(1000, 18)
+hist(Q)
 
 ### The F-distribution
 
@@ -245,6 +267,37 @@ We write $F \sim F_{n,m}$.
 The F-distribution arises when performing hypothesis tests in an analysis of variance and linear regression.
 
 df1 <- 4
-df2 <- 5
-X <- rchisq(1000, df1, df2)
+df2 <- 9
+U1 <- rchisq(1000, df1)
+U2 <- rchisq(1000, df2)
+F <-(U1/df1)/(U2/df2)
+hist(F)
+
+### The Beta distribution
+
+The beta distribution is a continuous probability distribution with two parameters, often called shape parameters since they control the shape of the distribution. If $X$ follows a Beta distribution, we write
+
+$$
+X\sim Beta(\alpha, \beta)
+$$
+
+The density of the Beta distribution is:
+
+$$
+f(x) = \frac{1}{B(\alpha, \beta)} \ x^{\alpha - 1} (1 - x)^{\beta - 1}, \qquad \mbox{for} \ \ x \in [0,1]
+$$
+
+The Beta function, $B(\alpha, \beta)$ is a normalisation constant to ensure that the integral from 0 to 1 is equal to 1. 
+
+The Beta distribution appears frequently in Bayesian inference. It can also be used to model percentages and proportions. The expectation and variance is given by:
+
+- $E(X) = n$
+- $Var(X) = 2 n$
+
+alpha <- 10
+beta <- 2
+
+X <- rbeta(1000, alpha, beta, ncp = 0)
+
 hist(X)
+

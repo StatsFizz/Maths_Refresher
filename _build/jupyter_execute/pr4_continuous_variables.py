@@ -50,7 +50,7 @@ P(a \leq X \leq b) = \int^{b}_{a} f(x) dx = \int^{b}_{- \infty} f(x) dx - \int^{
 $$
 
 
-## Relationship between CDF and PDF
+### Relationship between CDF and PDF
 
 The CDF is the integral of the PDF (above). Therefore, we also have that
 
@@ -110,10 +110,13 @@ P(a \leq X \leq b,\ c \leq Y \leq d) = \int^{b}_{a} \int^{d}_{c} f(x,y) \ dy\ dx
 $$
 
 The joint density function must satisfy
+
 $$
 f(x,y) \geq 0\mbox{ for all }x,y 
 $$
+
 and
+
 $$
 \int^{\infty}_{-\infty} \int^{\infty}_{-\infty} f(x,y) \ dy\ dx = 1.
 $$

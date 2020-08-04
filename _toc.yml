@@ -1,7 +1,5 @@
-file: intro
+file: myintro
 sections:
-- file: acknowledgements
-- header: Brief notes
 - file: mr1_functions
 - file: mr2_calculus
 - file: mr3_matrices
@@ -12,7 +10,6 @@ sections:
 - file: pr4_continuous_variables
 - file: pr5_correlation
 - file: pr6_distributions
-- header: Test yourself
 - file: Quiz1
 - file: Quiz2
 - file: Quiz3
@@ -24,5 +21,4 @@ sections:
 - file: Quiz9
 - file: Quiz10
 - file: Solutions
-- header: Further reading
 - file: mr_reading

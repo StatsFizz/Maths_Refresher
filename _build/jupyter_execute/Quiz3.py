@@ -94,7 +94,7 @@ Choose the correct answer:
 
  display(qs3["Q3_6"])
 
-**Question 7**: What is (a) $2A$, and (b) -1((A-C)3)?
+**Question 7**: What is (a) $2A$, and (b) $-1((A-C)3)$?
 
 Choose the correct answer:
 
